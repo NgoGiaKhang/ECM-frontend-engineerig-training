@@ -1,0 +1,320 @@
+/* styles.module.css */
+
+.container {
+  padding-block: var(--space-10);
+}
+
+/* =====================
+   HEADER
+===================== */
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: var(--space-4);
+
+  margin-bottom: var(--space-8);
+}
+
+.header h1 {
+  margin: 0;
+
+  font-size: var(--text-3xl);
+
+  font-weight: var(--font-extrabold);
+}
+
+.header p {
+  margin-top: var(--space-2);
+
+  color: var(--color-text-muted);
+}
+
+/* =====================
+   LAYOUT
+===================== */
+
+.layout {
+  display: grid;
+
+  grid-template-columns: 1fr 340px;
+
+  gap: var(--space-8);
+
+  align-items: start;
+}
+
+/* =====================
+   ITEMS
+===================== */
+
+.items {
+  display: flex;
+  flex-direction: column;
+
+  gap: var(--space-4);
+}
+
+.card {
+  display: flex;
+
+  gap: var(--space-4);
+
+  padding: var(--space-4);
+
+  border: 1px solid var(--color-border);
+
+  border-radius: var(--radius-md);
+
+  background: var(--color-surface);
+}
+
+.image {
+  width: 120px;
+  height: 120px;
+
+  object-fit: cover;
+
+  border-radius: var(--radius-sm);
+
+  background: var(--color-bg);
+}
+
+.content {
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: space-between;
+
+  gap: var(--space-3);
+}
+
+.name {
+  margin: 0;
+
+  font-size: var(--text-lg);
+
+  font-weight: var(--font-semibold);
+}
+
+.price {
+  margin-top: var(--space-1);
+
+  color: var(--color-text-muted);
+}
+
+/* =====================
+   ACTIONS
+===================== */
+
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: var(--space-4);
+}
+
+.quantity {
+  display: flex;
+  align-items: center;
+
+  gap: var(--space-2);
+}
+
+.quantity button {
+  width: 34px;
+  height: 34px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid var(--color-border);
+
+  border-radius: var(--radius-sm);
+
+  background: white;
+
+  cursor: pointer;
+
+  transition: var(--transition-base);
+}
+
+.quantity button:hover {
+  background: var(--color-bg);
+}
+
+.quantity span {
+  min-width: 24px;
+
+  text-align: center;
+
+  font-weight: var(--font-semibold);
+}
+
+.subtotal {
+  font-size: var(--text-md);
+}
+
+.remove {
+  border: none;
+
+  background: transparent;
+
+  color: var(--color-error);
+
+  cursor: pointer;
+}
+
+/* =====================
+   SUMMARY
+===================== */
+
+.summary {
+  position: sticky;
+  top: 90px;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: var(--space-4);
+
+  padding: var(--space-5);
+
+  border: 1px solid var(--color-border);
+
+  border-radius: var(--radius-md);
+
+  background: var(--color-surface);
+}
+
+.summary h2 {
+  margin: 0;
+
+  font-size: var(--text-xl);
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.total {
+  padding-top: var(--space-3);
+
+  border-top: 1px solid var(--color-border);
+
+  font-size: var(--text-lg);
+}
+
+/* =====================
+   EMPTY
+===================== */
+
+.empty {
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.emptyCard {
+  width: 100%;
+  max-width: 420px;
+
+  text-align: center;
+
+  padding: var(--space-10) var(--space-8);
+
+  border: 1px solid var(--color-border);
+
+  border-radius: var(--radius-lg);
+
+  background: var(--color-surface);
+}
+
+.emptyIcon {
+  width: 84px;
+  height: 84px;
+
+  margin: 0 auto var(--space-4);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: var(--color-bg);
+}
+
+.emptyCard h1 {
+  margin: 0;
+
+  font-size: var(--text-2xl);
+}
+
+.emptyCard p {
+  margin: var(--space-3) 0 var(--space-6);
+
+  color: var(--color-text-muted);
+
+  line-height: var(--leading-lg);
+}
+
+/* =====================
+   TABLET
+===================== */
+
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .summary {
+    position: static;
+  }
+}
+
+/* =====================
+   MOBILE
+===================== */
+
+@media (max-width: 640px) {
+  .container {
+    padding-block: var(--space-6);
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .card {
+    flex-direction: column;
+  }
+
+  .image {
+    width: 100%;
+    height: 220px;
+  }
+
+  .actions {
+    flex-wrap: wrap;
+  }
+
+  .summary {
+    padding: var(--space-4);
+  }
+
+  .emptyCard {
+    padding: var(--space-8) var(--space-5);
+  }
+}

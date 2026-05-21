@@ -5,6 +5,7 @@ import MarqueeText from "../../../../components/MarqueeText/MarqueeText";
 import { Link } from "react-router-dom";
 import { useCartStore } from "../../../cart/cart.store";
 import Button from "../../../../components/Button/Button";
+import { routes } from "../../../../constants/routes";
 
 type ProductCardProps = {
     product: Product;
@@ -30,7 +31,7 @@ export default function ProductCard({ product }: ProductCardProps) {
     return (
         <div className={styles.card}>
             <div className={styles.imageWrapper}>
-                <Link to={`products/${product.id}`}>
+                <Link to={`${routes.products}/${product.id}`}>
                     <img
                         src={product.thumbnail}
                         alt={product.name}
@@ -46,7 +47,7 @@ export default function ProductCard({ product }: ProductCardProps) {
             <div className={styles.content}>
                 <div>
                     <p className={styles.brand}>{product.brandName}</p>
-                    <Link to={`products/${product.id}`}>
+                    <Link to={`${routes.products}/${product.id}`}>
                         <MarqueeText text={product.name} className={styles.title} speed={10} />
                     </Link>
                 </div>

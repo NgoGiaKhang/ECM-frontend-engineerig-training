@@ -1,12 +1,14 @@
 import React from 'react'
-import type { CartStore } from '../cart/useCart'
 import ProductList from '../product/components/ProductList/ProductList'
+import Container from '../../components/Container/Container'
 
 type Props = {
 }
 
-export default function HomePage({}: Props) {
+export default function HomePage({ }: Props) {
   return (
-    <ProductList />
+    <Container as={'section'}>
+      <ProductList />
+    </Container>
   )
 }

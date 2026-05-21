@@ -23,8 +23,8 @@
 .logo {
   margin: 0;
   color: #fff;
-  font-size: 28px;
-  font-weight: 800;
+  font-size: var(--text-3xl);
+  font-weight: var(--font-extrabold);
 }
 
 .logo span {

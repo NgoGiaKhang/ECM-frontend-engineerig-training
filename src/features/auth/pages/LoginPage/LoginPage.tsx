@@ -11,6 +11,7 @@ import { useAuthStore } from '../../auth.store';
 import { authService } from '../../auth.service';
 import type { ApiErrorResponse } from '../../../../api/types';
 import { useNavigate } from 'react-router-dom';
+import { routes } from '../../../../constants/routes';
 
 
 const validator = new Validator({
@@ -44,7 +45,7 @@ export default function LoginPage() {
     try {
       const data = await authService.login(a.email, a.password);
       login(data.user, data.token)
-      navigate("/")
+      navigate(routes.home)
     } catch (e) {
       const apiError = e as ApiErrorResponse
       setError(apiError.message)

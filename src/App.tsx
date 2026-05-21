@@ -1,12 +1,14 @@
 
 import AppLayout from './layout/AppLayout';
 import { Route, Routes } from 'react-router-dom';
-import CartPage from './features/cart/CartPage';
+import CartPage from './features/cart/pages/CartPage';
 import HomePage from './features/home/HomePage';
 import ProductDetailPage from './features/product/pages/ProductDetailPage/ProductDetailPage';
 import LoginPage from './features/auth/pages/LoginPage/LoginPage';
 import CreateProductForm from './features/product/pages/ProductFormPage/ProductFormPage';
 import { NotFoundPage } from './layout/404';
+import { routes } from './constants/routes';
+import ProtectedRoute from './features/auth/ProtectedRoute';
 function App() {
   return (
     <Routes>
@@ -14,31 +16,35 @@ function App() {
         element={<AppLayout />}
       >
         <Route
-          path="/"
+          path={routes.home}
           element={<HomePage />}
         />
 
         <Route
-          path="/products/:id"
+          path={routes.productDetails}
           element={
             <ProductDetailPage />
           }
         />
         <Route
-          path="/cart"
+          path={routes.cart}
           element={<CartPage />}
         />
         <Route
-          path="/login"
+          path={routes.login}
           element={<LoginPage />}
         />
 
 
       </Route>
-      <Route
-        path="/admin/products/create"
-        element={<CreateProductForm />}
-      />
+      <Route element={<ProtectedRoute/>}>
+        <Route
+          path={routes.createProduct}
+          element={<CreateProductForm />}
+        />
+      </Route>
+
+
 
       <Route
         path="*"

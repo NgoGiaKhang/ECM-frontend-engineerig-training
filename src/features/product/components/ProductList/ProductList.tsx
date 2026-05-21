@@ -1,7 +1,6 @@
 
 import styles from "./style.module.css";
 import ProductCard from '../ProductCard/ProductCard';
-import type { CartStore } from '../../../cart/useCart';
 import ProductCardSkeleton from '../ProductCardSkeleton/ProductCardSkeleton';
 import { useFetch } from '../../../../api/useFetch';
 import type { Product } from '../../types';
@@ -12,7 +11,6 @@ import Pagination from "../../../../components/Pagination/Pagination";
 import { productService } from "../../product.service";
 import ProductListEmpty from "../ProductListEmpty/ProductListEmpty";
 type Props = {
-  cart: CartStore
 }
 
 const skeletonItem = 8;

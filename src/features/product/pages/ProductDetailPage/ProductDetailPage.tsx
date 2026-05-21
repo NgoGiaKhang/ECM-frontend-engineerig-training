@@ -3,7 +3,6 @@ import { ShoppingCart, Star } from "lucide-react";
 
 import styles from "./style.module.css";
 import { products } from '../../product.mock';
-import type { CartStore } from "../../../cart/useCart";
 import ScrollToTop from "../../../../components/ScrollToTop";
 import { useFetch } from "../../../../api/useFetch";
 import { productService } from "../../product.service";
@@ -38,7 +37,6 @@ export default function ProductDetailPage({ }: Props) {
 
   return (
     <Container size="lg" as='section' padding="lg">
-      <ScrollToTop />
       <div className={styles.grid}>
         {/* IMAGE */}
         <div className={styles.gallery}>

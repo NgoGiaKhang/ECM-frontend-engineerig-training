@@ -1,27 +1,20 @@
 // Header.tsx
 import {
-  Search,
   ShoppingCart,
-  User,
-  Menu,
   LogIn,
   LogOut,
 } from "lucide-react";
 
 import styles from "./styles.module.css";
-import type { CartStore } from "../../features/cart/useCart";
 import { useState } from "react";
 import CartDropdown from "../../features/cart/components/CartDropdown/CartDropdown";
 import { Link, useLocation } from 'react-router-dom';
 import { useCartStore } from "../../features/cart/cart.store";
 import { useAuthStore } from "../../features/auth/auth.store";
 import Container from "../../components/Container/Container";
-import Button from "../../components/Button/Button";
 import IconButton from "../../components/IconButton/IconButton";
+import { routes } from "../../constants/routes";
 
-type Props = {
-  cart: CartStore
-}
 
 export default function Header() {
   const [openCart, setOpenCart] = useState(false);
@@ -33,6 +26,7 @@ export default function Header() {
 
   const totalItem = useCartStore((s) => s.totalItems())
   const user = useAuthStore((s) => s.user)
+  const isAuthenticated = useAuthStore((s) => s.isAuthenticated)
   const logout = useAuthStore((s) => s.logout)
 
   return (
@@ -47,11 +41,19 @@ export default function Header() {
         <nav className={styles.nav}>
           <ul className={styles.navList}>
             <li className={`${styles.navItem} ${isAvive("/") ? styles.active : ""}`}>
-              <Link to={"/"}>Home</Link>
+              <Link to={routes.home}>Home</Link>
             </li>
             <li className={`${styles.navItem} ${isAvive("/products") ? styles.active : ""}`}>
-              <Link to={"/products"}>Products</Link>
+              <Link to={routes.products}>404</Link>
             </li>
+
+            {
+              isAuthenticated && (
+                <li className={`${styles.navItem} ${isAvive("/products") ? styles.active : ""}`}>
+                  <Link to={routes.createProduct}>Form</Link>
+                </li>
+              )
+            }
           </ul>
         </nav>
 

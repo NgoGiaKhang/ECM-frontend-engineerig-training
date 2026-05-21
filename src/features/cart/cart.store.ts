@@ -99,6 +99,14 @@ export const useCartStore = create<CartStore>()(
             "cart/decrease",
           );
         },
+        clear: () => {
+          set(
+            () => ({
+              items: [] }),
+            false,
+            "cart/clear",
+          );
+        },
       }),
       {
         name: "cart-storage",
