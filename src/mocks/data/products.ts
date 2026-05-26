@@ -21,12 +21,7 @@ export const products: Product[] = [
     brandId: "brand_apple",
     brandName: "Apple",
     thumbnail: "https://images.unsplash.com/photo-1695048133142-1a20484d2569",
-    images: ["https://images.unsplash.com/photo-1695048133142-1a20484d2569"],
     tags: ["iphone", "apple"],
-    snapshot: {
-      storage: "256GB",
-      color: "Black Titanium",
-    },
   },
 
   {
@@ -49,12 +44,7 @@ export const products: Product[] = [
     brandId: "brand_samsung",
     brandName: "Samsung",
     thumbnail: "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf",
-    images: ["https://images.unsplash.com/photo-1610945265064-0e34e5519bbf"],
     tags: ["samsung", "android"],
-    snapshot: {
-      storage: "512GB",
-      color: "Titanium Gray",
-    },
   },
 
   {
@@ -77,11 +67,7 @@ export const products: Product[] = [
     brandId: "brand_sony",
     brandName: "Sony",
     thumbnail: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e",
-    images: ["https://images.unsplash.com/photo-1505740420928-5e560c06d30e"],
     tags: ["sony", "headphones"],
-    snapshot: {
-      battery: "30h",
-    },
   },
   {
     id: "p_005",
@@ -103,11 +89,7 @@ export const products: Product[] = [
     brandId: "brand_nike",
     brandName: "Nike",
     thumbnail: "https://images.unsplash.com/photo-1542291026-7eec264c27ff",
-    images: ["https://images.unsplash.com/photo-1542291026-7eec264c27ff"],
     tags: ["nike", "shoes"],
-    snapshot: {
-      size: 42,
-    },
   },
 
   {
@@ -130,11 +112,7 @@ export const products: Product[] = [
     brandId: "brand_adidas",
     brandName: "Adidas",
     thumbnail: "https://images.unsplash.com/photo-1543508282-6319a3e2621f",
-    images: ["https://images.unsplash.com/photo-1543508282-6319a3e2621f"],
     tags: ["adidas", "running"],
-    snapshot: {
-      color: "Black",
-    },
   },
 
   {
@@ -157,11 +135,7 @@ export const products: Product[] = [
     brandId: "brand_dji",
     brandName: "DJI",
     thumbnail: "https://images.unsplash.com/photo-1473968512647-3e447244af8f",
-    images: ["https://images.unsplash.com/photo-1473968512647-3e447244af8f"],
     tags: ["drone", "dji"],
-    snapshot: {
-      video: "4K",
-    },
   },
 
   {
@@ -184,11 +158,7 @@ export const products: Product[] = [
     brandId: "brand_canon",
     brandName: "Canon",
     thumbnail: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32",
-    images: ["https://images.unsplash.com/photo-1516035069371-29a1b244cc32"],
     tags: ["camera", "canon"],
-    snapshot: {
-      sensor: "Full Frame",
-    },
   },
 
   {
@@ -211,11 +181,7 @@ export const products: Product[] = [
     brandId: "brand_sony",
     brandName: "Sony",
     thumbnail: "https://images.unsplash.com/photo-1606813907291-d86efa9b94db",
-    images: ["https://images.unsplash.com/photo-1606813907291-d86efa9b94db"],
     tags: ["ps5", "gaming"],
-    snapshot: {
-      storage: "1TB",
-    },
   },
 
   {
@@ -238,10 +204,6 @@ export const products: Product[] = [
     brandId: "brand_logitech",
     brandName: "Logitech",
     thumbnail: "https://images.unsplash.com/photo-1527814050087-3793815479db",
-    images: ["https://images.unsplash.com/photo-1527814050087-3793815479db"],
     tags: ["mouse", "logitech"],
-    snapshot: {
-      connectivity: "Bluetooth",
-    },
   },
 ];

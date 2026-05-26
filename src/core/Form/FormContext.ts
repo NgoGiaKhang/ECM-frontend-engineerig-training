@@ -1,6 +1,6 @@
 import { createContext, useContext } from "react";
-import type { FormElement } from "./types";
 import type { ValidationErrors } from "../validator";
+import type { FormElement } from "./types";
 
 type FormContextValue<T extends Record<string, unknown>> = {
   form: T;
@@ -15,7 +15,9 @@ type FormContextValue<T extends Record<string, unknown>> = {
   submit: (e: React.FormEvent<HTMLFormElement>) => Promise<void>;
 };
 
-export const FormContext = createContext<FormContextValue<any> | null>(null);
+export const FormContext = createContext<FormContextValue<
+  Record<string, unknown>
+> | null>(null);
 export function useFormContext<T extends Record<string, unknown>>() {
   const context = useContext(FormContext);
 

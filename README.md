@@ -19,9 +19,9 @@ If you are developing a production application, we recommend updating the config
 
 ```js
 export default defineConfig([
-  globalIgnores(['dist']),
+  globalIgnores(["dist"]),
   {
-    files: ['**/*.{ts,tsx}'],
+    files: ["**/*.{ts,tsx}"],
     extends: [
       // Other configs...
 
@@ -36,43 +36,44 @@ export default defineConfig([
     ],
     languageOptions: {
       parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        project: ["./tsconfig.node.json", "./tsconfig.app.json"],
         tsconfigRootDir: import.meta.dirname,
       },
       // other options...
     },
   },
-])
+]);
 ```
 
 You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
 ```js
 // eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+import reactX from "eslint-plugin-react-x";
+import reactDom from "eslint-plugin-react-dom";
 
 export default defineConfig([
-  globalIgnores(['dist']),
+  globalIgnores(["dist"]),
   {
-    files: ['**/*.{ts,tsx}'],
+    files: ["**/*.{ts,tsx}"],
     extends: [
       // Other configs...
       // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
+      reactX.configs["recommended-typescript"],
       // Enable lint rules for React DOM
       reactDom.configs.recommended,
     ],
     languageOptions: {
       parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        project: ["./tsconfig.node.json", "./tsconfig.app.json"],
         tsconfigRootDir: import.meta.dirname,
       },
       // other options...
     },
   },
-])
+]);
 ```
+
 # React E-Commerce App
 
 Modern React + TypeScript application using:
@@ -190,10 +191,10 @@ Responsibilities:
 Example:
 
 ```ts
-api.get()
-api.post()
-api.put()
-api.delete()
+api.get();
+api.post();
+api.put();
+api.delete();
 ```
 
 ---
@@ -254,8 +255,7 @@ Used for:
 Example:
 
 ```ts
-type ProductListResponse =
-  PaginatedResponse<Product>;
+type ProductListResponse = PaginatedResponse<Product>;
 ```
 
 Response:
@@ -317,16 +317,11 @@ Benefits:
 ## Example API Usage
 
 ```ts
-const response =
-  await api.get<
-    PaginatedResponse<Product>
-  >("/products");
+const response = await api.get<PaginatedResponse<Product>>("/products");
 
 console.log(response.data);
 
-console.log(
-  response.pagination.totalPages
-);
+console.log(response.pagination.totalPages);
 ```
 
 ---
@@ -355,13 +350,8 @@ Features:
 
 ```tsx
 const { loading, data } = useFetch(
-  (signal) =>
-    productService.findAll(
-      page,
-      limit,
-      signal
-    ),
-  [page, limit]
+  (signal) => productService.findAll(page, limit, signal),
+  [page, limit],
 );
 ```
 
@@ -374,12 +364,7 @@ Supports `AbortController`.
 Example:
 
 ```ts
-(signal) =>
-  productService.findAll(
-    page,
-    limit,
-    signal
-  )
+(signal) => productService.findAll(page, limit, signal);
 ```
 
 Benefits:
@@ -458,27 +443,16 @@ const initialForm: FormData = {
 };
 
 const validator = new Validator({
-  email: [
-    isRequired(
-      "Email must not be empty"
-    ),
-    isEmail(),
-  ],
+  email: [isRequired("Email must not be empty"), isEmail()],
 
-  password: [
-    isRequired(
-      "Password must not be empty"
-    ),
-  ],
+  password: [isRequired("Password must not be empty")],
 });
 
 <Form<FormData>
   className={styles.form}
   initialState={initialForm}
   validator={validator}
-  onSubmit={(values) =>
-    handleLogin(values)
-  }
+  onSubmit={(values) => handleLogin(values)}
 >
   <TextField
     type="email"
@@ -494,12 +468,8 @@ const validator = new Validator({
     className={styles.input}
   />
 
-  <SubmitButton
-    className={styles.button}
-  >
-    Sign in
-  </SubmitButton>
-</Form>
+  <SubmitButton className={styles.button}>Sign in</SubmitButton>
+</Form>;
 ```
 
 ---
@@ -520,8 +490,8 @@ Benefits:
 Example:
 
 ```ts
-name="email" // valid
-name="username" // TypeScript error
+name = "email"; // valid
+name = "username"; // TypeScript error
 ```
 
 ---
@@ -542,10 +512,7 @@ Validation logic is separated from UI.
 
 ```ts
 const validator = new Validator({
-  email: [
-    isRequired(),
-    isEmail(),
-  ],
+  email: [isRequired(), isEmail()],
 });
 ```
 
@@ -554,12 +521,12 @@ const validator = new Validator({
 ## Example Validators
 
 ```ts
-isRequired()
-isEmail()
-minLength()
-maxLength()
-pattern()
-match()
+isRequired();
+isEmail();
+minLength();
+maxLength();
+pattern();
+match();
 ```
 
 ---
@@ -685,27 +652,13 @@ Example:
 ```tsx
 <Routes>
   <Route element={<AppLayout />}>
-    <Route
-      path="/"
-      element={<HomePage />}
-    />
+    <Route path="/" element={<HomePage />} />
 
-    <Route
-      path="/products/:id"
-      element={
-        <ProductDetailPage />
-      }
-    />
+    <Route path="/products/:id" element={<ProductDetailPage />} />
 
-    <Route
-      path="/cart"
-      element={<CartPage />}
-    />
+    <Route path="/cart" element={<CartPage />} />
 
-    <Route
-      path="/login"
-      element={<LoginPage />}
-    />
+    <Route path="/login" element={<LoginPage />} />
   </Route>
 </Routes>
 ```
@@ -758,31 +711,22 @@ Using Zustand.
 ## Zustand Example
 
 ```ts
-export const useCartStore =
-  create<CartStore>()(
-    (set, get) => ({
-      items: [],
+export const useCartStore = create<CartStore>()((set, get) => ({
+  items: [],
 
-      addItem: (product) => {
-        set((state) => ({
-          items: [
-            ...state.items,
-            product,
-          ],
-        }));
-      },
+  addItem: (product) => {
+    set((state) => ({
+      items: [...state.items, product],
+    }));
+  },
 
-      totalPrice: () => {
-        return get().items.reduce(
-          (total, item) =>
-            total +
-            item.price *
-              item.quantity,
-          0
-        );
-      },
-    })
-  );
+  totalPrice: () => {
+    return get().items.reduce(
+      (total, item) => total + item.price * item.quantity,
+      0,
+    );
+  },
+}));
 ```
 
 ---
@@ -810,9 +754,7 @@ const store = useCartStore();
 Prefer:
 
 ```ts
-const items = useCartStore(
-  (state) => state.items
-);
+const items = useCartStore((state) => state.items);
 ```
 
 Benefits:
@@ -846,9 +788,7 @@ Purpose:
 
 ```ts
 http.get("/api/products", () => {
-  return HttpResponse.json(
-    products
-  );
+  return HttpResponse.json(products);
 });
 ```
 
@@ -880,8 +820,7 @@ Example:
 
 ```ts
 try {
-  const data =
-    await api.get("/products");
+  const data = await api.get("/products");
 } catch (error) {
   console.error(error);
 }
@@ -1035,4 +974,7 @@ This project demonstrates:
 - mock API workflows
 - reusable component patterns
 - TypeScript utility usage
+
+```
+
 ```

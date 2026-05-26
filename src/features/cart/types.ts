@@ -22,4 +22,5 @@ export type CartStore = {
   remove: (productId: string) => void;
   increase: (productId: string) => void;
   decrease: (productId: string) => void;
+  clear: () => void;
 };

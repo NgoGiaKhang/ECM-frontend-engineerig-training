@@ -1,4 +1,4 @@
-import type { GetValueFunction, Rule, Rules, ValidationErrors } from "./types";
+import type { GetValueFunction, Rules, ValidationErrors } from "./types";
 
 export class Validator {
   private rules: Rules;
@@ -54,6 +54,3 @@ export class Validator {
     return Object.keys(this.validate(form)).length === 0;
   }
 }
-
-
-  

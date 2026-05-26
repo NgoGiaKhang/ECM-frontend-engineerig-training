@@ -1,14 +1,10 @@
-import React from 'react'
-import ProductList from '../product/components/ProductList/ProductList'
-import Container from '../../components/Container/Container'
+import Container from "../../components/Container/Container";
+import ProductList from "../product/components/ProductList/ProductList";
 
-type Props = {
-}
-
-export default function HomePage({ }: Props) {
+export default function HomePage() {
   return (
-    <Container as={'section'}>
+    <Container as={"section"}>
       <ProductList />
     </Container>
-  )
+  );
 }

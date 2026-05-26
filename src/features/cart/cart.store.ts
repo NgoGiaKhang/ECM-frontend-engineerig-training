@@ -1,5 +1,6 @@
 import { create } from "zustand";
 import { devtools, persist } from "zustand/middleware";
+
 import type { CartItem, CartStore } from "./types";
 
 export const useCartStore = create<CartStore>()(
@@ -102,7 +103,8 @@ export const useCartStore = create<CartStore>()(
         clear: () => {
           set(
             () => ({
-              items: [] }),
+              items: [],
+            }),
             false,
             "cart/clear",
           );

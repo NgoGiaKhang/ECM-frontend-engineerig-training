@@ -1,5 +1,6 @@
 // MarqueeText.tsx
 import { useEffect, useRef, useState } from "react";
+
 import styles from "./styles.module.css";
 
 type MarqueeTextProps = {
@@ -8,10 +9,12 @@ type MarqueeTextProps = {
   speed?: number;
 };
 
+const DEFAULT_SPEED = 10;
+
 export default function MarqueeText({
   text,
   className = "",
-  speed = 10,
+  speed = DEFAULT_SPEED,
 }: MarqueeTextProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
@@ -23,7 +26,7 @@ export default function MarqueeText({
       if (!containerRef.current || !textRef.current) return;
 
       setOverflow(
-        textRef.current.scrollWidth > containerRef.current.clientWidth
+        textRef.current.scrollWidth > containerRef.current.clientWidth,
       );
     };
 
@@ -40,10 +43,7 @@ export default function MarqueeText({
 
   if (!overflow) {
     return (
-      <div
-        ref={containerRef}
-        className={`${styles.container} ${className}`}
-      >
+      <div ref={containerRef} className={`${styles.container} ${className}`}>
         <div ref={textRef} className={styles.single}>
           {text}
         </div>
@@ -52,10 +52,7 @@ export default function MarqueeText({
   }
 
   return (
-    <div
-      ref={containerRef}
-      className={`${styles.container} ${className}`}
-    >
+    <div ref={containerRef} className={`${styles.container} ${className}`}>
       <div
         className={styles.track}
         style={{
@@ -66,9 +63,7 @@ export default function MarqueeText({
           {text}
         </div>
 
-        <div className={styles.text}>
-          {text}
-        </div>
+        <div className={styles.text}>{text}</div>
       </div>
     </div>
   );

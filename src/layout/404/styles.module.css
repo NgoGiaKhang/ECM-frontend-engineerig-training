@@ -8,12 +8,7 @@
   padding: var(--space-6);
 
   background:
-    radial-gradient(
-      circle at top,
-      #eef2ff,
-      transparent
-    ),
-    var(--color-bg);
+    radial-gradient(circle at top, #eef2ff, transparent), var(--color-bg);
 }
 
 /* =====================
@@ -24,9 +19,7 @@
   width: 100%;
   max-width: 420px;
 
-  padding:
-    var(--space-10)
-    var(--space-8);
+  padding: var(--space-10) var(--space-8);
 
   text-align: center;
 
@@ -51,9 +44,7 @@
   width: 84px;
   height: 84px;
 
-  margin:
-    0 auto
-    var(--space-2);
+  margin: 0 auto var(--space-2);
 
   border-radius: 50%;
 
@@ -73,9 +64,7 @@
 
   line-height: 1.1;
 
-  font-weight: var(
-    --font-extrabold
-  );
+  font-weight: var(--font-extrabold);
 
   color: var(--color-text);
 }
@@ -85,15 +74,11 @@
 ===================== */
 
 .text {
-  margin:
-    var(--space-2)
-    0;
+  margin: var(--space-2) 0;
 
   font-size: var(--text-lg);
 
-  font-weight: var(
-    --font-semibold
-  );
+  font-weight: var(--font-semibold);
 
   color: var(--color-text);
 }
@@ -119,9 +104,7 @@
 
   gap: var(--space-2);
 
-  padding:
-    var(--space-3)
-    var(--space-5);
+  padding: var(--space-3) var(--space-5);
 
   border-radius: var(--radius-sm);
 
@@ -131,19 +114,13 @@
 
   text-decoration: none;
 
-  font-weight: var(
-    --font-semibold
-  );
+  font-weight: var(--font-semibold);
 
-  transition: var(
-    --transition-base
-  );
+  transition: var(--transition-base);
 }
 
 .button:hover {
-  background: var(
-    --color-primary-hover
-  );
+  background: var(--color-primary-hover);
 }
 
 /* =====================
@@ -156,9 +133,7 @@
   }
 
   .card {
-    padding:
-      var(--space-8)
-      var(--space-5);
+    padding: var(--space-8) var(--space-5);
   }
 
   .title {

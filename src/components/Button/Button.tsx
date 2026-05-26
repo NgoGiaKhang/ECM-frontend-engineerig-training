@@ -1,23 +1,12 @@
-import type {
-  ElementType,
-  ReactNode,
-} from "react";
+import type { ElementType, ReactNode } from "react";
 
 import styles from "./styles.module.css";
 
-type ButtonVariant =
-  | "primary"
-  | "secondary"
-  | "danger"
-  | "ghost";
+type ButtonVariant = "primary" | "secondary" | "danger" | "ghost";
 
-type ButtonWidth =
-  | "auto"
-  | "full";
+type ButtonWidth = "auto" | "full";
 
-export type ButtonProps<
-  T extends ElementType = "button",
-> = {
+export type ButtonProps<T extends ElementType = "button"> = {
   as?: T;
 
   children?: ReactNode;
@@ -31,9 +20,7 @@ export type ButtonProps<
   className?: string;
 } & React.ComponentPropsWithoutRef<T>;
 
-export default function Button<
-  T extends ElementType = "button",
->({
+export default function Button<T extends ElementType = "button">({
   as,
 
   children,
@@ -48,38 +35,21 @@ export default function Button<
 
   ...props
 }: ButtonProps<T>) {
-  const Component =
-    as || "button";
+  const Component = as || "button";
 
   return (
     <Component
       {...props}
-      disabled={
-        props.disabled || loading
-      }
+      disabled={props.disabled || loading}
       className={`
         ${styles.button}
         ${styles[variant]}
-        ${
-          width === "full"
-            ? styles.full
-            : ""
-        }
-        ${
-          loading
-            ? styles.loading
-            : ""
-        }
+        ${width === "full" ? styles.full : ""}
+        ${loading ? styles.loading : ""}
         ${className ?? ""}
       `}
     >
-      {loading ? (
-        <span
-          className={styles.loader}
-        />
-      ) : (
-        children
-      )}
+      {loading ? <span className={styles.loader} /> : children}
     </Component>
   );
 }

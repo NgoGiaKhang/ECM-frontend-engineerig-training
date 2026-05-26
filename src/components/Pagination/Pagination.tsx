@@ -19,10 +19,7 @@ export default function Pagination({
     onChange(p);
   };
 
-  const pages = Array.from(
-    { length: totalPages },
-    (_, i) => i + 1,
-  );
+  const pages = Array.from({ length: totalPages }, (_, i) => i + 1);
 
   return (
     <div className={styles.pagination}>
@@ -42,9 +39,7 @@ export default function Pagination({
             key={p}
             onClick={() => goTo(p)}
             className={
-              p === page
-                ? `${styles.page} ${styles.active}`
-                : styles.page
+              p === page ? `${styles.page} ${styles.active}` : styles.page
             }
           >
             {p}

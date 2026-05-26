@@ -1,4 +1,5 @@
 import { delay, http, HttpResponse } from "msw";
+
 import { products } from "./data/products";
 import { userHandlers } from "./data/user";
 
@@ -17,7 +18,7 @@ export const handlers = [
     // SORT
     const sort = url.searchParams.get("sort");
 
-    let result = [...products];
+    const result = [...products];
 
     switch (sort) {
       case "price_asc":

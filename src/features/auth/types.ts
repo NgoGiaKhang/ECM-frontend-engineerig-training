@@ -5,6 +5,6 @@ export type User = {
 };
 
 export type LoginResponse = {
-    user: User
-    token: string
-}
+  user: User;
+  token: string;
+};

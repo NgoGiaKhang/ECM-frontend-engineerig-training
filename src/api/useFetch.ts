@@ -1,26 +1,22 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-
-export type ApiError = {
-  status: number;
-  message: string;
-  code: string;
-};
+import type { ApiErrorResponse } from "./types";
+import { REQUEST_CANCELED_CODE } from "./api";
 
 type UseFetchState<T> = {
   data: T | null;
 
   loading: boolean;
 
-  error: ApiError | null;
+  error: ApiErrorResponse | null;
 };
+
+type QueryKey = readonly unknown[];
 
 type Fetcher<T> = (signal: AbortSignal) => Promise<T>;
 
-const CANCEL_ERRORS = ["CanceledError", "AbortError"] as const;
-
-export function useFetch<T>(fetcher: Fetcher<T>, ...dependencies: unknown[]) {
+export function useFetch<T>(queryKey: QueryKey, fetcher: Fetcher<T>) {
   const abortRef = useRef<AbortController | null>(null);
-
+  const key = JSON.stringify(queryKey);
   const [state, setState] = useState<UseFetchState<T>>({
     data: null,
 
@@ -60,21 +56,25 @@ export function useFetch<T>(fetcher: Fetcher<T>, ...dependencies: unknown[]) {
       });
 
       return data;
-    } catch (error: any) {
-      // strict mode abort
-      if (CANCEL_ERRORS.includes(error.name) || controller.signal.aborted) {
-        return;
+    } catch (e: unknown) {
+      const error = e as ApiErrorResponse;
+      // 1. Check if the error was formatted as a cancellation by your Axios interceptor
+      const isCanceledByInterceptor = error?.code === REQUEST_CANCELED_CODE;
+
+      // 2. Check the AbortController signal directly, in case the cancellation happened locally
+      const isCanceledBySignal = controller.signal.aborted;
+
+      if (isCanceledByInterceptor || isCanceledBySignal) {
+        console.log(
+          "Request safely canceled. Dropping error execution stream.",
+        );
+        return; // Exit the function silently without triggering UI error states/toasts
       }
 
-      const apiError: ApiError = {
-        status: error.status ?? 500,
-        message: error.message ?? "Unknown error",
-        code: error.code ?? "UNKNOWN_ERROR",
-      };
       setState({
         data: null,
         loading: false,
-        error: apiError,
+        error: error as ApiErrorResponse,
       });
     }
   }, [fetcher]);
@@ -84,12 +84,14 @@ export function useFetch<T>(fetcher: Fetcher<T>, ...dependencies: unknown[]) {
   }, []);
 
   useEffect(() => {
-    execute();
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    void execute();
 
     return () => {
       abortRef.current?.abort();
     };
-  }, [execute, ...dependencies]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [key]);
 
   return {
     ...state,

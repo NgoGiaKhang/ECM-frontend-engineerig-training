@@ -5,7 +5,7 @@ export type PaginatedResponse<T> = {
   data: T[];
   pagination: {
     page: number;
-    limit: number;
+    size: number;
     total: number;
     totalPages: number;
   };

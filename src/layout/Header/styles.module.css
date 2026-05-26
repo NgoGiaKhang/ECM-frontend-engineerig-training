@@ -30,7 +30,6 @@
   min-width: 0;
 }
 
-
 .menuButton:hover {
   background: var(--color-border);
 }
@@ -101,9 +100,6 @@
 
   flex-shrink: 0;
 }
-
-
-
 
 /* BADGE */
 .badge {
@@ -192,7 +188,7 @@
     flex-wrap: wrap;
   }
 
-  .search {
+  .nav {
     order: 3;
     width: 100%;
     max-width: 100%;
