@@ -15,3 +15,10 @@ export type ApiErrorResponse = {
   message: string;
   code: string;
 };
+
+export type PageRequest = {
+  page: number;
+  limit: number;
+  sort: string;
+};
+

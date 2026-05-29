@@ -1,0 +1,128 @@
+/* components/Select/styles.module.css */
+
+.group {
+  display: flex;
+  flex-direction: column;
+
+  gap: var(--space-2);
+}
+
+.full {
+  width: 100%;
+}
+
+.label {
+  font-size: var(--text-sm);
+  font-weight: 600;
+
+  color: var(--color-text);
+}
+
+.wrapper {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  border: 1px solid var(--color-border);
+
+  border-radius: var(--radius-md);
+
+  background: var(--color-surface);
+
+  transition: var(--transition-base);
+}
+
+.wrapper:focus-within {
+  border-color: var(--color-primary);
+}
+
+.select {
+  width: 100%;
+
+  border: none;
+  outline: none;
+
+  background: transparent;
+
+  appearance: none;
+
+  color: var(--color-text);
+
+  cursor: pointer;
+}
+
+.select option {
+  width: 100%;
+}
+
+.select:disabled {
+  cursor: not-allowed;
+}
+
+.icon {
+  position: absolute;
+
+  right: var(--space-3);
+
+  pointer-events: none;
+
+  color: var(--color-text-muted);
+}
+
+/* =====================
+   SIZES
+===================== */
+
+.sm .select {
+  height: 36px;
+
+  padding-left: var(--space-3);
+  padding-right: calc(var(--space-3) + var(--space-3));
+
+  font-size: var(--text-sm);
+}
+
+.md .select {
+  height: 44px;
+
+  padding-left: var(--space-4);
+  padding-right: calc(var(--space-4) + var(--space-3));
+
+  font-size: var(--text-md);
+}
+
+.lg .select {
+  height: 52px;
+
+  padding-left: var(--space-4);
+  padding-right: calc(var(--space-4) + var(--space-3));
+
+  font-size: var(--text-md);
+}
+
+/* =====================
+   STATES
+===================== */
+
+.error {
+  border-color: var(--color-error);
+}
+
+.disabled {
+  opacity: 0.6;
+
+  cursor: not-allowed;
+}
+
+.message {
+  font-size: var(--text-sm);
+
+  color: var(--color-error);
+}
+
+.hint {
+  font-size: var(--text-sm);
+
+  color: var(--color-text-muted);
+}

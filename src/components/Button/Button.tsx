@@ -1,6 +1,7 @@
 import type { ElementType, ReactNode } from "react";
 
 import styles from "./styles.module.css";
+import { Loader2} from "lucide-react";
 
 type ButtonVariant = "primary" | "secondary" | "danger" | "ghost";
 
@@ -49,7 +50,13 @@ export default function Button<T extends ElementType = "button">({
         ${className ?? ""}
       `}
     >
-      {loading ? <span className={styles.loader} /> : children}
+      {loading ? (
+        <Loader2
+          className={styles.loader}
+        />
+      ) : (
+        children
+      )}
     </Component>
   );
 }

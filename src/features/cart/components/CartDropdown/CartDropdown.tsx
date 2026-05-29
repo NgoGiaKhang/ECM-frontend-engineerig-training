@@ -22,6 +22,7 @@ export default function CartDropdown({ onClose }: Props) {
   const remove = useCartStore((s) => s.remove);
 
   const totalPrice = useCartStore((s) => s.totalPrice());
+  const currency = items[0]?.currency;
 
   return (
     <>
@@ -63,7 +64,7 @@ export default function CartDropdown({ onClose }: Props) {
             </div>
 
             {/* FOOTER */}
-            <CartDropdownFooter totalPrice={totalPrice} />
+            <CartDropdownFooter totalPrice={totalPrice} currency={currency} />
           </>
         )}
       </div>

@@ -1,0 +1,66 @@
+/* styles.module.css */
+.bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+.left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+  flex: 1;
+} /* =====================    SEARCH ===================== */
+.search {
+  position: relative;
+  min-width: 260px;
+  flex: 1;
+}
+
+.search input{
+    padding-left: var(--space-10);
+}
+
+.searchIcon {
+  position: absolute;
+  top: 50%;
+  left: var(--space-3);
+  transform: translateY(-50%);
+  color: var(--color-text-muted);
+}
+/* =====================    SELECT ===================== */
+.selectWrapper {
+  position: relative;
+}
+.selectIcon {
+  position: absolute;
+  top: 50%;
+  left: var(--space-3);
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: var(--color-text-muted);
+}
+.right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+} /* =====================    MOBILE ===================== */
+@media (max-width: 768px) {
+  .bar {
+    align-items: stretch;
+  }
+  .left {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .right {
+    width: 100%;
+  }
+  .right > * {
+    width: 100%;
+  }
+}

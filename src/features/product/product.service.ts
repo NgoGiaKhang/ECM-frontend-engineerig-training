@@ -10,13 +10,14 @@ class ProductService {
     const res = await api.get<ApiResponse<Product>>(`/products/${id}`, {
       signal,
     });
+
     return res.data;
   }
   async findAll(page: number, size: number, signal: AbortSignal) {
     return api.get<PaginatedResponse<Product>>("/products", {
       signal,
       params: {
-        size,
+        limit: size,
         page,
       },
     });

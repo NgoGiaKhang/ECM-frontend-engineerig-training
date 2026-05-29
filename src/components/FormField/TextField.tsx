@@ -1,10 +1,11 @@
 // TextField.tsx
 import { useFormContext } from "../../core/Form/FormContext";
+import { TextInput, type TextInputProps } from "../TextInput/TextInput";
 import styles from "./styles.module.css";
 
 type TextFieldProps<
   T extends Record<string, unknown> = Record<string, unknown>,
-> = React.InputHTMLAttributes<HTMLInputElement> & {
+> = TextInputProps & {
   label?: string;
   name: keyof T;
 };
@@ -28,7 +29,7 @@ export default function TextField<
     <div className={`${styles.group} ${isError ? styles.error : ""}`}>
       {label && <label htmlFor={props.id}>{label}</label>}
 
-      <input
+      <TextInput
         {...props}
         disabled={props.disabled || isSubmitting}
         name={String(name)}
@@ -45,7 +46,6 @@ export default function TextField<
           handleBlur(e);
           props.onBlur?.(e);
         }}
-        className={isError ? styles.inputError : ""}
       />
 
       {isError && (

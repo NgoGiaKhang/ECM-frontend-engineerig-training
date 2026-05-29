@@ -21,7 +21,6 @@ export function FieldSection() {
         name="description"
         label="Description"
         placeholder="Description..."
-        rows={5}
       />
 
       <TextField

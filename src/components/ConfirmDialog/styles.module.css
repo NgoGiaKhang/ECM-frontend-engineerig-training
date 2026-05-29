@@ -1,0 +1,124 @@
+/* components/ConfirmDialog/styles.module.css */
+
+.root {
+  position: fixed;
+  inset: 0;
+
+  z-index: 2000;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: var(--space-4);
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.5);
+
+  backdrop-filter: blur(4px);
+}
+
+.dialog {
+  position: relative;
+
+  width: 100%;
+  max-width: 420px;
+  padding: var(--space-6);
+
+  border-radius: var(--radius-xl);
+
+  background: var(--color-surface);
+
+  box-shadow: var(--shadow-lg);
+
+  display: flex;
+  flex-direction: column;
+
+  gap: var(--space-5);
+
+  z-index: 1;
+}
+
+.close {
+  position: absolute;
+
+  top: var(--space-4);
+  right: var(--space-4);
+
+  border: none;
+  background: transparent;
+
+  cursor: pointer;
+
+  color: var(--color-text-muted);
+}
+
+.icon {
+  width: 64px;
+  height: 64px;
+
+  border-radius: 999px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #dbeafe;
+
+  color: #2563eb;
+}
+
+.danger {
+  background: #fee2e2;
+
+  color: #ef4444;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+
+  gap: var(--space-2);
+}
+
+.title {
+  margin: 0;
+
+  font-size: var(--text-xl);
+  font-weight: 700;
+
+  color: var(--color-text);
+}
+
+.description {
+  margin: 0;
+
+  line-height: 1.6;
+
+  color: var(--color-text-muted);
+}
+
+.footer {
+  display: flex;
+  justify-content: flex-end;
+
+  gap: var(--space-3);
+}
+
+@media (max-width: 640px) {
+  .dialog {
+    padding: var(--space-5);
+  }
+
+  .footer {
+    flex-direction: column-reverse;
+  }
+
+  .footer button {
+    width: 100%;
+  }
+}

@@ -9,6 +9,7 @@ import ProductDetailSkeleton from "../../components/ProductDetailSkeleton/Produc
 import { productService } from "../../product.service";
 import styles from "./style.module.css";
 import { useCallback } from "react";
+import { formatCurrency } from "@/utils/format";
 
 export default function ProductDetailPage() {
   const { id } = useParams();
@@ -22,12 +23,7 @@ export default function ProductDetailPage() {
   const addCart = useCartStore((s) => s.add);
   if (loading) return <ProductDetailSkeleton />;
 
-  const formatPrice = (v: number) =>
-    new Intl.NumberFormat("vi-VN", {
-      style: "currency",
-      currency: "VND",
-      maximumFractionDigits: 0,
-    }).format(v);
+
 
   if (!product) return <></>;
 
@@ -65,11 +61,11 @@ export default function ProductDetailPage() {
 
           {/* PRICE */}
           <div className={styles.priceBox}>
-            <span className={styles.price}>{formatPrice(product.price)}</span>
+            <span className={styles.price}>{formatCurrency(product.originalPrice, product.currency)}</span>
 
             {discountPrice && (
               <span className={styles.originalPrice}>
-                {formatPrice(product.originalPrice)}
+                {formatCurrency(product.originalPrice, product.currency)}
               </span>
             )}
 

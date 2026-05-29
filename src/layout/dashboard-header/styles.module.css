@@ -1,0 +1,159 @@
+/* DashboardHeader.module.css */
+
+.header {
+  position: sticky;
+  height: 64px;
+
+  display: flex;
+  align-items: center;
+
+  padding: 0 var(--space-6);
+
+  background: var(--color-surface);
+
+  border-bottom: 1px solid var(--color-border);
+
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  justify-content: space-between;
+}
+
+/* LEFT */
+.left {
+  display: flex;
+  align-items: center;
+
+  gap: var(--space-3);
+}
+
+.menuButton {
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  border-radius: var(--radius-md);
+
+  background: var(--color-bg);
+
+  cursor: pointer;
+}
+
+.logo {
+  font-size: var(--text-xl);
+  font-weight: 800;
+}
+
+.logo span {
+  color: var(--color-link);
+}
+
+/* SEARCH */
+.search {
+  position: relative;
+
+  flex: 1;
+  max-width: 520px;
+}
+
+.searchIcon {
+  position: absolute;
+
+  top: 50%;
+  left: var(--space-3);
+
+  transform: translateY(-50%);
+
+  color: var(--color-text-muted);
+}
+
+.input {
+  width: 100%;
+
+  padding: var(--space-3) var(--space-4) var(--space-3) 42px;
+
+  border: 1px solid var(--color-border);
+
+  border-radius: var(--radius-md);
+
+  background: var(--color-bg);
+
+  outline: none;
+
+  font-size: var(--text-sm);
+}
+
+.input:focus {
+  background: white;
+  border-color: var(--color-link);
+}
+
+/* ACTIONS */
+.actions {
+  display: flex;
+  align-items: center;
+
+  gap: var(--space-3);
+}
+
+.iconButton {
+  width: 42px;
+  height: 42px;
+
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  border-radius: var(--radius-md);
+
+  background: var(--color-bg);
+
+  cursor: pointer;
+}
+
+.badge {
+  position: absolute;
+
+  top: -4px;
+  right: -4px;
+
+  min-width: 18px;
+  height: 18px;
+
+  padding: 0 5px;
+
+  border-radius: var(--radius-full);
+
+  background: var(--color-error);
+
+  color: white;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .header {
+    padding: var(--space-3) var(--space-4);
+  }
+
+  .search {
+    display: none;
+  }
+
+  .logo {
+    font-size: var(--text-lg);
+  }
+}

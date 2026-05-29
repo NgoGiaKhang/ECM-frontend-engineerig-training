@@ -64,6 +64,22 @@ export const minNumber =
     return undefined;
   };
 
+export const maxNumber =
+  (max: number, message = `Maximum value is ${max}`): Rule =>
+  (value) => {
+    if (value === undefined || value === null || value === "") {
+      return undefined;
+    }
+
+    const number = Number(value);
+
+    if (Number.isNaN(number) || number > max) {
+      return message;
+    }
+
+    return undefined;
+  };
+
 export const isEmail =
   (message = "Invalid email address"): Rule =>
   (value) => {

@@ -6,7 +6,7 @@ import axios, {
 
 import type { ApiErrorResponse } from "./types";
 
-const BASE_API_URL = import.meta.env.VITE_BASE_API_URL || "/api";
+const BASE_API_URL = import.meta.env.VITE_BASE_API || "/api";
 const API_TIMEOUT = Number(import.meta.env.VITE_API_TIMEOUT) || 10000;
 export const CANCELED_ERRORS = ["CanceledError", "AbortError"] as const;
 export const DEFAULT_ERROR_MESSAGE = "Something went wrong";
@@ -41,8 +41,6 @@ class HttpClient {
         // 2. Handle normal API error responses
         const status = error.response?.status;
         const data = error.response?.data;
-        console.log(error);
-
         return Promise.reject({
           status: status ?? 0,
           message: data?.message ?? DEFAULT_ERROR_MESSAGE,

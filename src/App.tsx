@@ -2,14 +2,16 @@ import { Route, Routes } from "react-router-dom";
 
 import { routes } from "./constants/routes";
 import LoginPage from "./features/auth/pages/LoginPage/LoginPage";
-import ProtectedRoute from "./features/auth/ProtectedRoute";
 import CartPage from "./features/cart/pages/CartPage";
 import HomePage from "./features/home/HomePage";
 import ProductDetailPage from "./features/product/pages/ProductDetailPage/ProductDetailPage";
-import CreateProductForm from "./features/product/pages/ProductFormPage/ProductFormPage";
 import { NotFoundPage } from "./layout/404";
 import AppLayout from "./layout/AppLayout";
 import UnknownErrorPage from "./layout/Unknown/UnknownErrorPage";
+import { ProductPage } from "./features/dashboard/product/pages/ProductPage/ProductPage";
+import { DashboardLayout } from "./layout/dashboard/DashboardLayout";
+import { ProductFormPage } from "./features/dashboard/product/pages/CreateProductPage";
+import { UpdateProductPage } from "./features/dashboard/product/pages/UpdateProductPage";
 function App() {
   return (
     <Routes>
@@ -22,8 +24,11 @@ function App() {
         <Route path={routes.error} element={<UnknownErrorPage />}></Route>
         <Route path="*" element={<NotFoundPage />} />
       </Route>
-      <Route element={<ProtectedRoute />} errorElement={<UnknownErrorPage />}>
-        <Route path={routes.createProduct} element={<CreateProductForm />} />
+      <Route element={<DashboardLayout />} errorElement={<UnknownErrorPage />}>
+        <Route path={routes.createProduct} element={<ProductFormPage />} />
+        <Route path={routes.manageProducts} element={<ProductPage />} />
+        <Route path={routes.updateProducts} element={<UpdateProductPage />} />
+        <Route path={routes.adminNotFound} element={<NotFoundPage />} />
       </Route>
     </Routes>
   );

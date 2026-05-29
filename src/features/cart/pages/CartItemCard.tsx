@@ -1,16 +1,11 @@
 import { Minus, Plus, Trash2 } from "lucide-react";
 
-import { formatPrice } from "../utils";
 import styles from "./styles.module.css";
+import { formatCurrency } from "@/utils/format";
+import type { CartItem } from "../types";
 
 type CartItemCardProps = {
-  item: {
-    productId: string;
-    productName: string;
-    thumbnail: string;
-    price: number;
-    quantity: number;
-  };
+  item: CartItem
 
   onIncrease: (productId: string) => void;
 
@@ -37,7 +32,7 @@ export default function CartItemCard({
         <div>
           <h2 className={styles.name}>{item.productName}</h2>
 
-          <p className={styles.price}>{formatPrice(item.price)}</p>
+          <p className={styles.price}>{formatCurrency(item.price, item.currency)}</p>
         </div>
 
         <div className={styles.actions}>
@@ -56,7 +51,7 @@ export default function CartItemCard({
 
           {/* subtotal */}
           <strong className={styles.subtotal}>
-            {formatPrice(item.price * item.quantity)}
+            {formatCurrency(item.price, item.currency)}
           </strong>
 
           {/* remove */}

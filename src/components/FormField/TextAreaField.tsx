@@ -1,9 +1,10 @@
 import { useFormContext } from "../../core/Form/FormContext";
+import { TextArea, type TextAreaProps } from "../TextArea/TextArea";
 import styles from "./styles.module.css";
 
 type TextAreaFieldProps<
   T extends Record<string, unknown> = Record<string, unknown>,
-> = React.TextareaHTMLAttributes<HTMLTextAreaElement> & {
+> = TextAreaProps & {
   label: string;
   name: keyof T;
 };
@@ -26,7 +27,7 @@ export default function TextAreaField<
     <div className={`${styles.group} ${isError ? styles.error : ""}`}>
       <label htmlFor={props.id}>{label}</label>
 
-      <textarea
+      <TextArea
         {...props}
         disabled={props.disabled || isSubmitting}
         name={String(name)}

@@ -8,8 +8,8 @@ import App from "./App.tsx";
 import ScrollToTop from "./components/ScrollToTop.tsx";
 import { enableMocking } from "./mocks/index.ts";
 
-enableMocking().then(() => {
-  createRoot(document.getElementById("root")!).render(
+
+createRoot(document.getElementById("root")!).render(
     <StrictMode>
       <HashRouter>
         <ScrollToTop />
@@ -17,4 +17,3 @@ enableMocking().then(() => {
       </HashRouter>
     </StrictMode>,
   );
-});

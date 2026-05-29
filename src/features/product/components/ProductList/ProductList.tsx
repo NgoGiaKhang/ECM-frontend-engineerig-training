@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { Navigate } from "react-router-dom";
 
-import { useFetch } from "../../../../api/useFetch";
-import Pagination from "../../../../components/Pagination/Pagination";
-import { routes } from "../../../../constants/routes";
+import { useFetch } from "@/api/useFetch";
+import {Pagination} from "@/components/Pagination/Pagination";
+import { routes } from "@/constants/routes";
 import { productService } from "../../product.service";
 import ProductCard from "../ProductCard/ProductCard";
 import ProductCardSkeleton from "../ProductCardSkeleton/ProductCardSkeleton";

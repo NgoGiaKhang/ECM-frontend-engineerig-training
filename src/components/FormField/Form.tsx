@@ -1,6 +1,6 @@
 // Form.tsx
 import type { FormHTMLAttributes, ReactNode } from "react";
-
+import styles from "./styles.module.css";
 import { useFormContext } from "../../core/Form/FormContext";
 import { FormProvider } from "../../core/Form/FormProvider";
 import type { ValidationErrors } from "../../core/validator";
@@ -27,7 +27,7 @@ function InnerForm({
   const { submit } = useFormContext();
 
   return (
-    <form {...props} onSubmit={submit}>
+    <form {...props} onSubmit={submit} className={`${styles.form} ${props.className}`}>
       {children}
     </form>
   );

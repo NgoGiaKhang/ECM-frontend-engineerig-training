@@ -12,36 +12,6 @@
   color: var(--color-text);
 }
 
-.group input,
-.group textarea {
-  width: 100%;
-
-  padding: var(--space-3) var(--space-4);
-
-  border: 1px solid var(--color-border);
-
-  border-radius: var(--radius-sm);
-
-  outline: none;
-
-  font-size: 14px;
-
-  transition: var(--transition-base);
-}
-
-/* focus */
-.group input:focus,
-.group textarea:focus {
-  border-color: var(--color-primary);
-}
-
-/* disabled */
-.group input:disabled,
-.group textarea:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-}
-
 /* small helper text */
 .group small {
   font-size: 12px;
@@ -52,11 +22,13 @@
    ERROR STATE (clean)
 ===================== */
 .group.error input,
-.group.error textarea {
+.group.error textarea,
+.group.error select {
   border-color: var(--color-error);
 }
 
 .group.error input::placeholder,
+.group.error textarea::placeholder,
 .group.error textarea::placeholder {
   color: var(--color-error);
 }
@@ -86,4 +58,23 @@
   padding: var(--space-3) var(--space-4);
 
   font-weight: 600;
+}
+.form {
+
+  margin: 0 auto;
+
+  background: var(--color-surface);
+
+  border: 1px solid var(--color-border);
+
+  border-radius: var(--radius-sm);
+
+  padding: var(--space-8);
+
+  display: flex;
+  flex-direction: column;
+
+  gap: var(--space-5);
+
+  box-shadow: var(--shadow-sm);
 }

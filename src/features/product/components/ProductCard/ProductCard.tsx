@@ -7,6 +7,7 @@ import { routes } from "../../../../constants/routes";
 import { useCartStore } from "../../../cart/cart.store";
 import type { Product } from "../../types";
 import styles from "./style.module.css";
+import { formatCurrency } from "@/utils/format";
 
 type ProductCardProps = {
   product: Product;
@@ -21,12 +22,7 @@ export default function ProductCard({ product }: ProductCardProps) {
       ((product.originalPrice - product.price) / product.originalPrice) * 100,
     );
 
-  const formatPrice = (value: number) =>
-    new Intl.NumberFormat("vi-VN", {
-      style: "currency",
-      currency: product.currency || "VND",
-      maximumFractionDigits: 0,
-    }).format(value);
+
 
   return (
     <div className={styles.card}>
@@ -67,11 +63,11 @@ export default function ProductCard({ product }: ProductCardProps) {
         </div>
 
         <div className={styles.priceGroup}>
-          <span className={styles.price}>{formatPrice(product.price)}</span>
+          <span className={styles.price}>{formatCurrency(product.price, product.currency)}</span>
 
           {product.originalPrice > product.price && (
             <span className={styles.originalPrice}>
-              {formatPrice(product.originalPrice)}
+              {formatCurrency(product.originalPrice, product.currency)}
             </span>
           )}
         </div>

@@ -2,8 +2,8 @@ import { Link } from "react-router-dom";
 
 import Button from "../../../components/Button/Button";
 import { routes } from "../../../constants/routes";
-import { formatPrice } from "../utils";
 import styles from "./styles.module.css";
+import { formatCurrency } from "@/utils/format";
 
 type CartSummaryProps = {
   totalItems: number;
@@ -33,7 +33,7 @@ export default function CartSummary({
       <div className={`${styles.row} ${styles.total}`}>
         <span>Total</span>
 
-        <strong>{formatPrice(totalPrice)}</strong>
+        <strong>{formatCurrency(totalPrice)}</strong>
       </div>
 
       <Button width="full">Checkout</Button>
